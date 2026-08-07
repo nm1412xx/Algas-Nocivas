@@ -1,0 +1,750 @@
+/* Selecciona todos los elementos del documento */
+* {
+    margin: 0; /* Elimina el margen por defecto de todos los elementos */
+    padding: 0; /* Elimina el padding por defecto de todos los elementos */
+    box-sizing: border-box; /* Hace que padding y border se incluyan en el ancho total */
+}
+
+/* Estilos base para el elemento raíz html */
+html {
+    scroll-behavior: smooth; /* Activa el desplazamiento suave al hacer clic en enlaces internos */
+}
+
+/* Estilos generales del cuerpo de la página */
+body {
+    font-family: 'Segoe UI', Georgia, "Times New Roman", serif; /* Fuente principal con respaldo serif */
+    background: #0a1929; /* Fondo azul marino muy oscuro (abismo marino) */
+    color: #c8d6e5; /* Texto principal en gris azulado claro */
+    line-height: 1.7; /* Espaciado entre líneas para mejor legibilidad */
+}
+
+/* Scrollbar personalizada para navegadores WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento vertical */
+}
+
+/* Parte móvil del scrollbar (el "pulgar") */
+::-webkit-scrollbar-thumb {
+    background: #1a3a5c; /* Color azul oscuro del pulgar */
+    border-radius: 10px; /* Bordes redondeados del pulgar */
+}
+
+/* Efecto hover sobre el pulgar del scrollbar */
+::-webkit-scrollbar-thumb:hover {
+    background: #c45454; /* Cambia a rojo claro al pasar el cursor */
+}
+
+/* Pista del scrollbar (fondo de la barra) */
+::-webkit-scrollbar-track {
+    background: #0a1929; /* Color de fondo igual al body para integración */
+}
+
+/* ---------- PORTADA / HEADER ---------- */
+
+/* Estilos del encabezado principal (portada) */
+header {
+    min-height: 72vh; /* Altura mínima del 72% del viewport */
+    background: /* Capa de degradado oscuro sobre la imagen de fondo */
+        linear-gradient(rgba(6, 20, 32, 0.92), rgba(10, 25, 41, 0.95)), /* Degradado de arriba a abajo, casi opaco */
+        url("../img/banner.jpg"); /* Imagen de fondo de la portada */
+    background-size: cover; /* La imagen cubre todo el espacio del header */
+    background-position: center; /* Centra la imagen de fondo */
+    color: #ffffff; /* Texto blanco sobre el fondo oscuro */
+    text-align: center; /* Centra todo el texto horizontalmente */
+    padding: 90px 25px; /* Espaciado interno: 90px arriba/abajo, 25px lados */
+    display: flex; /* Activa flexbox para alinear elementos internos */
+    flex-direction: column; /* Organiza los elementos en columna vertical */
+    justify-content: center; /* Centra los elementos verticalmente */
+    border-bottom: 8px solid #c45454; /* Borde inferior rojo claro (algas) */
+    position: relative; /* Posición relativa para hijos absolutos */
+}
+
+/* Animación de entrada del header */
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-30px); } /* Estado inicial: invisible y desplazado arriba */
+    100% { opacity: 1; transform: translateY(0); } /* Estado final: visible y en posición */
+}
+
+/* Animación de entrada del subtítulo */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); } /* Estado inicial: invisible y desplazado abajo */
+    100% { opacity: 1; transform: translateY(0); } /* Estado final: visible y en posición */
+}
+
+/* Animación de pulso para alertas */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); } /* Estado normal: escala 1 */
+    50% { transform: scale(1.03); } /* Estado intermedio: ligeramente más grande */
+}
+
+/* ---------- TÍTULO PRINCIPAL DEL HEADER ---------- */
+
+/* Estilos del título h1 dentro del header */
+header h1 {
+    font-size: 3.4rem; /* Tamaño de fuente grande para el título principal */
+    text-transform: uppercase; /* Convierte todo el texto a mayúsculas */
+    letter-spacing: 3px; /* Espaciado de 3px entre cada letra */
+    margin-bottom: 18px; /* Margen inferior para separar del subtítulo */
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.6); /* Sombra de texto para profundidad */
+    animation: fadeInDown 1s ease-out; /* Aplica animación de entrada desde arriba */
+}
+
+/* ---------- SUBTÍTULO DE LA PORTADA ---------- */
+
+/* Estilos del subtítulo de la portada */
+.subtitulo-portada {
+    max-width: 850px; /* Ancho máximo para limitar la extensión del texto */
+    margin: 0 auto; /* Centrado horizontal automático */
+    font-size: 1.32rem; /* Tamaño de fuente mayor que el normal */
+    font-style: italic; /* Texto en cursiva */
+    color: #8395a7; /* Color gris azulado medio para contraste */
+    animation: fadeInUp 1s ease-out 0.3s both; /* Animación desde abajo con retardo */
+}
+
+/* ---------- DATOS DE LA PORTADA ---------- */
+
+/* Contenedor de los datos del autor en la portada */
+.datos-portada {
+    margin: 38px auto 0; /* Margen superior de 38px, centrado horizontal */
+    padding: 22px 30px; /* Espaciado interno generoso */
+    max-width: 850px; /* Ancho máximo igual al subtítulo */
+    background: rgba(13, 33, 55, 0.6); /* Fondo azul oscuro semitransparente */
+    border: 1px solid rgba(26, 58, 92, 0.5); /* Borde sutil azul oscuro */
+    border-radius: 16px; /* Bordes redondeados */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque del fondo detrás */
+    animation: fadeInUp 1s ease-out 0.6s both; /* Animación desde abajo con mayor retardo */
+}
+
+/* Párrafos dentro de la caja de datos de la portada */
+.datos-portada p {
+    margin: 6px 0; /* Margen vertical de 6px entre cada línea */
+}
+
+/* ---------- BARRA DE NAVEGACIÓN ---------- */
+
+/* Contenedor principal de la navegación */
+nav {
+    position: sticky; /* Se pega al tope de la pantalla al hacer scroll */
+    top: 0; /* Se queda pegado a 0px del borde superior */
+    z-index: 1000; /* Nivel de apilamiento alto para estar por encima del contenido */
+    background: #081828; /* Fondo azul casi negro */
+    padding: 14px 16px; /* Espaciado interno del menú */
+    text-align: center; /* Centra los enlaces horizontalmente */
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.4); /* Sombra pronunciada para separación */
+    border-bottom: 3px solid #1a3a5c; /* Borde inferior azul oscuro */
+}
+
+/* Estilos de cada enlace dentro de la navegación */
+nav a {
+    display: inline-block; /* Se muestra en línea pero permite padding/margin */
+    color: #c8d6e5; /* Texto en gris azulado claro */
+    text-decoration: none; /* Sin subrayado */
+    margin: 5px 4px; /* Espaciado entre enlaces */
+    padding: 8px 12px; /* Espaciado interno de cada enlace */
+    border-radius: 22px; /* Bordes redondeados tipo píldora */
+    font-size: 0.8rem; /* Tamaño de fuente pequeño */
+    font-weight: bold; /* Texto en negrita */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 0.4px; /* Espaciado sutil entre letras */
+    transition: 0.25s ease; /* Transición suave para los cambios de estado */
+    border: 1px solid transparent; /* Borde invisible por defecto */
+}
+
+/* Efecto al pasar el cursor sobre los enlaces de navegación */
+nav a:hover {
+    background: #c45454; /* Fondo cambia a rojo claro */
+    color: #ffffff; /* Texto se vuelve blanco */
+    border-color: #e07070; /* Borde rojo claro */
+    transform: translateY(-2px); /* Se eleva ligeramente */
+    box-shadow: 0 4px 12px rgba(196, 84, 84, 0.3); /* Sombra roja */
+}
+
+/* ---------- CONTENIDO PRINCIPAL ---------- */
+
+/* Contenedor principal del contenido de la página */
+main {
+    max-width: 1120px; /* Ancho máximo del contenido */
+    margin: 55px auto; /* Centrado horizontal con margen superior de 55px */
+    padding: 0 24px; /* Padding lateral para separar de los bordes */
+}
+
+/* ---------- SECCIONES ---------- */
+
+/* Estilos base para cada sección del contenido */
+section {
+    background: #0d2137; /* Fondo azul marino profundo */
+    margin-bottom: 55px; /* Separación entre secciones */
+    padding: 46px; /* Espaciado interno generoso */
+    border-radius: 18px; /* Bordes redondeados */
+    border: 1px solid #1a3a5c; /* Borde azul oscuro */
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3); /* Sombra oscura para profundidad */
+    scroll-margin-top: 100px; /* Margen al hacer scroll para que no quede tapado por el nav */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+/* Efecto hover sutil en las secciones */
+section:hover {
+    transform: translateY(-2px); /* Se eleva ligeramente al pasar el cursor */
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+}
+
+/* Párrafos dentro de las secciones */
+section p {
+    font-size: 1.05rem; /* Tamaño de fuente ligeramente mayor al normal */
+    margin-bottom: 18px; /* Margen inferior entre párrafos */
+    text-align: justify; /* Texto justificado para alineación elegante */
+}
+
+/* ---------- TÍTULOS H2 ---------- */
+
+/* Estilos para los títulos de nivel 2 */
+h2 {
+    color: #e07070; /* Texto en rojo claro (algas más brillantes) */
+    text-align: center; /* Centrado horizontal */
+    font-size: 2.05rem; /* Tamaño grande para jerarquía */
+    margin-bottom: 30px; /* Margen inferior para separar del contenido */
+    padding-bottom: 14px; /* Padding inferior para el borde */
+    border-bottom: 4px double #c45454; /* Borde doble rojo claro */
+}
+
+/* ---------- TÍTULOS H3 ---------- */
+
+/* Estilos para los subtítulos de nivel 3 */
+h3 {
+    color: #c8d6e5; /* Texto en gris azulado claro */
+    font-size: 1.35rem; /* Tamaño mediano para subtítulos */
+    margin: 36px 0 20px; /* Margen superior grande, inferior mediano */
+    padding-left: 14px; /* Padding izquierdo para el borde decorativo */
+    border-left: 6px solid #0d3b2e; /* Borde izquierdo verde oscuro (algas) */
+}
+
+/* ---------- LÍNEAS SEPARADORAS ---------- */
+
+/* Línea separadora debajo de títulos principales */
+hr.titulo {
+    border: none; /* Elimina el borde por defecto del hr */
+    height: 2px; /* Altura de la línea */
+    background: linear-gradient(to right, transparent, #e07070, transparent); /* Gradiente centrado rojo claro */
+    margin: 10px 0 30px; /* Margen vertical para separación */
+}
+
+/* Línea separadora entre temas dentro de una sección */
+hr.tema {
+    border: none; /* Elimina el borde por defecto del hr */
+    height: 1px; /* Línea más fina */
+    background: linear-gradient(to right, transparent, #1a3a5c, transparent); /* Gradiente centrado azul */
+    margin: 25px 0; /* Margen vertical moderado */
+}
+
+/* ---------- IMÁGENES ---------- */
+
+/* Contenedor centrado para imágenes */
+.img-box {
+    text-align: center; /* Centra el contenido horizontalmente */
+    margin: 36px auto; /* Centrado con margen vertical */
+}
+
+/* Resetea márgenes de figure */
+figure {
+    margin-left: 0; /* Sin margen izquierdo */
+    margin-right: 0; /* Sin margen derecho */
+}
+
+/* Estilos para todas las imágenes */
+img {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 740px; /* Pero no más de 740px */
+    max-height: 450px; /* Altura máxima para no deformar */
+    object-fit: contain; /* Mantiene la proporción de la imagen */
+    background: #0d2137; /* Fondo azul oscuro detrás de la imagen */
+    padding: 10px; /* Espaciado interno como marco */
+    border: 4px solid #1a3a5c; /* Borde azul oscuro */
+    border-radius: 14px; /* Bordes redondeados */
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35); /* Sombra oscura */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+/* Efecto hover sobre las imágenes */
+img:hover {
+    transform: scale(1.02); /* Ligeramente más grande al pasar el cursor */
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5); /* Sombra más intensa */
+}
+
+/* Texto descriptivo debajo de las imágenes */
+figcaption {
+    margin-top: 10px; /* Margen superior para separar de la imagen */
+    color: #8395a7; /* Color gris azulado medio */
+    font-size: 0.88rem; /* Tamaño de fuente pequeño */
+    font-style: italic; /* Texto en cursiva */
+    text-align: center; /* Centrado horizontal */
+}
+
+/* ---------- TABLAS ---------- */
+
+/* Contenedor de tablas con scroll horizontal si es necesario */
+.tabla-contenedor {
+    overflow-x: auto; /* Scroll horizontal si la tabla es muy ancha */
+    margin: 20px 0; /* Margen vertical */
+    border-radius: 12px; /* Bordes redondeados del contenedor */
+    border: 1px solid #1a3a5c; /* Borde azul oscuro */
+}
+
+/* Estilos base de la tabla */
+table {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    border-collapse: collapse; /* Une los bordes de las celdas */
+    background: #0a1929; /* Fondo azul muy oscuro */
+    font-size: 0.95rem; /* Tamaño de fuente para tablas */
+}
+
+/* Encabezados de la tabla */
+th {
+    background: #16293b; /* Fondo azul oscuro para el header */
+    color: #ffffff; /* Texto blanco */
+    padding: 14px 18px; /* Espaciado interno */
+    text-align: left; /* Alineación izquierda */
+    font-weight: bold; /* Negrita */
+    border-bottom: 3px solid #c45454; /* Borde inferior rojo claro */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 0.5px; /* Espaciado entre letras */
+}
+
+/* Celdas del cuerpo de la tabla */
+td {
+    padding: 12px 18px; /* Espaciado interno de celdas */
+    border-bottom: 1px solid #1a3a5c; /* Borde inferior azul oscuro entre filas */
+    color: #c8d6e5; /* Texto gris azulado claro */
+}
+
+/* Efecto hover sobre filas de la tabla */
+tr:hover td {
+    background: #0f2a44; /* Fondo ligeramente más claro al pasar el cursor */
+}
+
+/* ---------- LISTAS ---------- */
+
+/* Estilos para listas con padding izquierdo */
+ul {
+    padding-left: 24px; /* Indentación de 24px para la viñeta */
+}
+
+/* Elementos de las listas */
+li {
+    margin-bottom: 13px; /* Separación entre cada elemento */
+    list-style-type: none; /* Sin viñeta por defecto (se personaliza) */
+    position: relative; /* Posición relativa para pseudo-elementos */
+    padding-left: 5px; /* Padding izquierdo adicional */
+}
+
+/* ---------- ENLACES GENERALES ---------- */
+
+/* Estilos para todos los enlaces de la página */
+a {
+    color: #e07070; /* Color rojo claro para los enlaces */
+    font-weight: bold; /* Texto en negrita */
+    text-decoration: none; /* Sin subrayado por defecto */
+    transition: color 0.25s ease; /* Transición suave del color */
+}
+
+/* Efecto al pasar el cursor sobre enlaces */
+a:hover {
+    color: #0d3b2e; /* Cambia a verde oscuro (algas) al hacer hover */
+    text-decoration: underline; /* Aparece subrayado */
+}
+
+/* ---------- LISTAS DE VENTAJAS ---------- */
+
+/* Lista de ventajas con punto verde decorativo */
+ul.ventajas li::before {
+    content: ""; /* Contenido vacío (los íconos ya están en el HTML) */
+    position: absolute; /* Posición absoluta respecto al li */
+    left: -18px; /* Posicionado a la izquierda */
+    top: 4px; /* Alineado con el texto */
+    width: 6px; /* Ancho del punto */
+    height: 6px; /* Alto del punto */
+    background: #0d3b2e; /* Color verde oscuro */
+    border-radius: 50%; /* Forma circular */
+}
+
+/* ---------- LISTAS DE DESVENTAJAS ---------- */
+
+/* Lista de desventajas con punto rojo claro decorativo */
+ul.desventajas li::before {
+    content: ""; /* Contenido vacío */
+    position: absolute; /* Posición absoluta */
+    left: -18px; /* Posicionado a la izquierda */
+    top: 4px; /* Alineado con el texto */
+    width: 6px; /* Ancho del punto */
+    height: 6px; /* Alto del punto */
+    background: #c45454; /* Color rojo claro */
+    border-radius: 50%; /* Forma circular */
+}
+
+/* ---------- LISTA DE BIBLIOGRAFÍA ---------- */
+
+/* Lista de bibliografía con íconos de globo */
+ul.bibliografia li {
+    padding-left: 10px; /* Padding izquierdo adicional */
+    margin-bottom: 20px; /* Mayor separación entre referencias */
+    padding-bottom: 15px; /* Padding inferior para separación visual */
+    border-bottom: 1px solid #1a3a5c; /* Línea separadora sutil */
+}
+
+/* Último elemento de la bibliografía sin borde inferior */
+ul.bibliografia li:last-child {
+    border-bottom: none; /* Elimina el borde del último elemento */
+    margin-bottom: 0; /* Sin margen inferior */
+}
+
+/* ---------- CITA DESTACADA ---------- */
+
+/* Bloque de cita (blockquote) estilizado */
+blockquote {
+    background: rgba(13, 33, 55, 0.6); /* Fondo azul oscuro semitransparente */
+    border-left: 5px solid #c45454; /* Borde izquierdo rojo claro */
+    border-right: 5px solid #c45454; /* Borde derecho rojo claro */
+    padding: 24px 30px; /* Espaciado interno generoso */
+    margin: 30px 0; /* Margen vertical */
+    border-radius: 12px; /* Bordes redondeados */
+    font-style: italic; /* Texto en cursiva */
+    color: #c8d6e5; /* Texto gris azulado claro */
+    position: relative; /* Para posicionar los íconos de comillas */
+    font-size: 1.05rem; /* Tamaño de fuente ligeramente mayor */
+}
+
+/* Ícono de comillas de apertura en el blockquote */
+blockquote .fa-quote-left {
+    position: absolute; /* Posición absoluta */
+    top: 10px; /* Cerca del borde superior */
+    left: 10px; /* Cerca del borde izquierdo */
+    color: #c45454; /* Color rojo claro */
+    font-size: 1.2rem; /* Tamaño de ícono */
+    opacity: 0.5; /* Semi-transparente */
+}
+
+/* Ícono de comillas de cierre en el blockquote */
+blockquote .fa-quote-right {
+    position: absolute; /* Posición absoluta */
+    bottom: 10px; /* Cerca del borde inferior */
+    right: 10px; /* Cerca del borde derecho */
+    color: #c45454; /* Color rojo claro */
+    font-size: 1.2rem; /* Tamaño de ícono */
+    opacity: 0.5; /* Semi-transparente */
+}
+
+/* ---------- ALERTA DESTACADA ---------- */
+
+/* Caja de alerta para información importante */
+.alerta {
+    background: rgba(196, 84, 84, 0.12); /* Fondo rojo claro muy sutil */
+    border: 2px solid #c45454; /* Borde rojo claro */
+    border-radius: 12px; /* Bordes redondeados */
+    padding: 20px 24px; /* Espaciado interno */
+    margin: 30px 0; /* Margen vertical */
+    display: flex; /* Flexbox para alinear ícono y texto */
+    align-items: flex-start; /* Alineación superior */
+    gap: 14px; /* Espacio entre ícono y texto */
+    animation: pulse 3s ease-in-out infinite; /* Animación de pulso sutil */
+}
+
+/* Ícono dentro de la alerta */
+.alerta i {
+    color: #e07070; /* Color rojo claro */
+    font-size: 1.5rem; /* Tamaño grande del ícono */
+    flex-shrink: 0; /* No se encoge con el contenido */
+}
+
+/* Texto dentro de la alerta */
+.alerta p {
+    margin: 0; /* Sin margen adicional */
+    color: #c8d6e5; /* Texto gris azulado claro */
+}
+
+/* ---------- REFLEXIÓN FINAL ---------- */
+
+/* Caja de reflexión al final de la conclusión */
+.reflexion {
+    background: rgba(13, 59, 46, 0.15); /* Fondo verde oscuro muy sutil */
+    border: 2px solid #0d3b2e; /* Borde verde oscuro (algas) */
+    border-radius: 12px; /* Bordes redondeados */
+    padding: 20px 24px; /* Espaciado interno */
+    margin: 30px 0; /* Margen vertical */
+    display: flex; /* Flexbox para alinear ícono y texto */
+    align-items: flex-start; /* Alineación superior */
+    gap: 14px; /* Espacio entre ícono y texto */
+}
+
+/* Ícono dentro de la reflexión */
+.reflexion i {
+    color: #0d3b2e; /* Color verde oscuro */
+    font-size: 1.5rem; /* Tamaño grande del ícono */
+    flex-shrink: 0; /* No se encoge con el contenido */
+}
+
+/* Texto dentro de la reflexión */
+.reflexion p {
+    margin: 0; /* Sin margen adicional */
+    color: #c8d6e5; /* Texto gris azulado claro */
+}
+
+/* ---------- BOTÓN VOLVER ARRIBA FLOTANTE ---------- */
+
+/* Botón flotante circular para volver al inicio */
+.btn-arriba-flotante {
+    display: block; /* Se muestra como bloque */
+    width: 50px; /* Ancho fijo de 50px */
+    height: 50px; /* Alto fijo de 50px (cuadrado) */
+    position: fixed; /* Posición fija en la pantalla */
+    bottom: 30px; /* 30px desde el borde inferior */
+    right: 30px; /* 30px desde el borde derecho */
+    background: #16293b; /* Fondo azul oscuro */
+    color: #ffffff; /* Ícono blanco */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 50%; /* Forma completamente circular */
+    border: 2px solid #1a3a5c; /* Borde azul oscuro */
+    font-size: 1.2rem; /* Tamaño del ícono */
+    text-align: center; /* Centra el ícono horizontalmente */
+    line-height: 46px; /* Centra el ícono verticalmente (50 - 4px de borde) */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35); /* Sombra oscura */
+    transition: 0.25s ease; /* Transición suave */
+    z-index: 9999; /* Siempre por encima de todo */
+}
+
+/* Efecto hover sobre el botón flotante */
+.btn-arriba-flotante:hover {
+    background: #c45454; /* Cambia a rojo claro */
+    color: #ffffff; /* Texto blanco */
+    transform: translateY(-3px); /* Se eleva 3px */
+    border-color: #e07070; /* Borde rojo claro */
+    box-shadow: 0 8px 20px rgba(196, 84, 84, 0.4); /* Sombra roja */
+}
+
+/* ---------- SECCIÓN DESCARGA ---------- */
+
+/* Contenedor de la sección de descarga */
+.descarga-contenedor {
+    text-align: center; /* Centra el contenido */
+    margin: 30px 0; /* Margen vertical */
+}
+
+/* Enlace de descarga estilizado */
+.descarga-link {
+    display: inline-flex; /* Flexbox en línea para alinear imagen y texto */
+    flex-direction: column; /* Elementos en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    gap: 12px; /* Espacio entre imagen y texto */
+    padding: 24px 36px; /* Espaciado interno */
+    background: rgba(13, 33, 55, 0.6); /* Fondo azul oscuro semitransparente */
+    border: 2px solid #1a3a5c; /* Borde azul oscuro */
+    border-radius: 16px; /* Bordes redondeados */
+    text-decoration: none; /* Sin subrayado */
+    transition: 0.3s ease; /* Transición suave */
+    cursor: pointer; /* Cursor de mano para indicar clic */
+}
+
+/* Efecto hover sobre el enlace de descarga */
+.descarga-link:hover {
+    background: rgba(22, 41, 59, 0.8); /* Fondo más opaco */
+    border-color: #c45454; /* Borde rojo claro */
+    transform: translateY(-3px); /* Se eleva ligeramente */
+    box-shadow: 0 10px 24px rgba(196, 84, 84, 0.2); /* Sombra roja */
+}
+
+/* Imagen dentro del enlace de descarga */
+.descarga-link img {
+    max-width: 200px; /* Ancho máximo menor para la miniatura */
+    max-height: 280px; /* Altura máxima para la miniatura */
+    border: 3px solid #1a3a5c; /* Borde azul oscuro */
+}
+
+/* Texto del enlace de descarga */
+.descarga-texto {
+    color: #c8d6e5; /* Texto gris azulado claro */
+    font-weight: bold; /* Negrita */
+    font-size: 1.1rem; /* Tamaño de fuente mayor */
+}
+
+/* ---------- BOTÓN VOLVER ARRIBA ORIGINAL (al final del contenido) ---------- */
+
+/* Estilos del botón clásico de volver arriba */
+.btn-arriba {
+    display: block; /* Se muestra como bloque */
+    width: fit-content; /* Ancho automático según contenido */
+    margin: 5px auto 50px; /* Centrado horizontal, margen inferior de 50px */
+    padding: 13px 26px; /* Espaciado interno */
+    background: #16293b; /* Fondo azul oscuro */
+    color: #c8d6e5; /* Texto gris azulado claro */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 28px; /* Bordes redondeados */
+    font-weight: bold; /* Texto en negrita */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22); /* Sombra oscura */
+    transition: 0.25s ease; /* Transición suave */
+    border: 2px solid #1a3a5c; /* Borde azul oscuro */
+}
+
+/* Efecto hover sobre el botón volver arriba */
+.btn-arriba:hover {
+    background: #c45454; /* Cambia a rojo claro */
+    color: #ffffff; /* Texto blanco */
+    transform: translateY(-3px); /* Se eleva 3px */
+    border-color: #e07070; /* Borde rojo claro */
+}
+
+/* ---------- FOOTER ---------- */
+
+/* Estilos del pie de página */
+footer {
+    background: #061420; /* Fondo azul casi negro (más oscuro que el body) */
+    color: #8395a7; /* Texto en gris azulado medio */
+    text-align: center; /* Centra todo el contenido */
+    padding: 48px 20px; /* Espaciado interno generoso */
+    margin-top: 65px; /* Margen superior para separar del contenido */
+    border-top: 7px solid #c45454; /* Borde superior rojo claro */
+}
+
+/* Contenedor interno del footer */
+.footer-contenido {
+    max-width: 900px; /* Ancho máximo del contenido del footer */
+    margin: 0 auto; /* Centrado horizontal */
+}
+
+/* Párrafos dentro del footer */
+footer p {
+    margin: 8px 0; /* Margen vertical de 8px entre párrafos */
+    font-size: 0.95rem; /* Tamaño de fuente ligeramente menor */
+}
+
+/* Título de derechos reservados en el footer */
+.derechos {
+    color: #c8d6e5; /* Texto gris azulado claro */
+    margin-bottom: 16px; /* Margen inferior para separar del texto */
+    font-size: 1.1rem; /* Tamaño de fuente mayor */
+}
+
+/* Créditos del autor en el footer */
+.creditos {
+    margin-top: 20px; /* Margen superior para separar del texto legal */
+    padding-top: 16px; /* Padding superior para la separación */
+    border-top: 1px solid #1a3a5c; /* Línea separadora sutil */
+    font-size: 0.88rem; /* Tamaño de fuente pequeño */
+    color: #8395a7; /* Color gris azulado medio */
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+
+/* PANTALLAS MEDIANAS (tablets y laptops pequeñas): hasta 900px */
+@media screen and (max-width: 900px) {
+    /* Título principal más pequeño */
+    header h1 {
+        font-size: 2.4rem; /* Reduce el tamaño del título */
+    }
+
+    /* Subtítulo más pequeño */
+    .subtitulo-portada {
+        font-size: 1.1rem; /* Reduce el tamaño */
+    }
+
+    /* Padding de secciones reducido */
+    section {
+        padding: 30px; /* Menos padding interno */
+    }
+
+    /* Título h2 más pequeño */
+    h2 {
+        font-size: 1.7rem; /* Reduce el tamaño */
+    }
+
+    /* Navegación con enlaces más compactos */
+    nav a {
+        font-size: 0.7rem; /* Fuente más pequeña */
+        padding: 6px 8px; /* Padding reducido */
+    }
+}
+
+/* PANTALLAS PEQUEÑAS (celulares): hasta 600px */
+@media screen and (max-width: 600px) {
+    /* Portada con menos altura en móviles */
+    header {
+        min-height: 60vh; /* Reduce la altura del header */
+        padding: 60px 15px; /* Padding reducido */
+    }
+
+    /* Título principal más pequeño en móviles */
+    header h1 {
+        font-size: 1.8rem; /* Tamaño significativamente menor */
+        letter-spacing: 1px; /* Menos espaciado entre letras */
+    }
+
+    /* Subtítulo más pequeño en móviles */
+    .subtitulo-portada {
+        font-size: 0.95rem; /* Tamaño menor */
+    }
+
+    /* Datos de la portada más compactos */
+    .datos-portada {
+        padding: 16px 20px; /* Padding reducido */
+        margin: 24px auto 0; /* Margen reducido */
+    }
+
+    /* Secciones con padding mínimo */
+    section {
+        padding: 24px 18px; /* Padding mínimo para móviles */
+        margin-bottom: 35px; /* Menos separación entre secciones */
+    }
+
+    /* Título h2 más pequeño */
+    h2 {
+        font-size: 1.4rem; /* Tamaño reducido */
+    }
+
+    /* Título h3 más pequeño */
+    h3 {
+        font-size: 1.15rem; /* Tamaño reducido */
+    }
+
+    /* Navegación en formato de columnas para móviles */
+    nav {
+        padding: 10px 8px; /* Padding reducido */
+    }
+
+    nav a {
+        display: block; /* Cada enlace en una línea separada */
+        margin: 3px 0; /* Sin margen horizontal */
+        font-size: 0.75rem; /* Fuente pequeña */
+        text-align: center; /* Centrado */
+    }
+
+    /* Imágenes se ajustan al ancho completo */
+    img {
+        max-height: 300px; /* Altura máxima reducida */
+    }
+
+    /* Botón flotante más pequeño en móviles */
+    .btn-arriba-flotante {
+        width: 44px; /* Ancho reducido */
+        height: 44px; /* Alto reducido */
+        bottom: 20px; /* Más cerca del borde inferior */
+        right: 20px; /* Más cerca del borde derecho */
+        font-size: 1rem; /* Ícono más pequeño */
+        line-height: 40px; /* Centrado del ícono */
+    }
+
+    /* Alerta con flex-wrap para móviles */
+    .alerta {
+        flex-direction: column; /* Ícono arriba, texto abajo */
+        align-items: center; /* Centrado */
+        text-align: center; /* Texto centrado */
+    }
+
+    /* Reflexión con flex-wrap para móviles */
+    .reflexion {
+        flex-direction: column; /* Ícono arriba, texto abajo */
+        align-items: center; /* Centrado */
+        text-align: center; /* Texto centrado */
+    }
+
+    /* Footer más compacto */
+    footer {
+        padding: 30px 15px; /* Padding reducido */
+    }
+}
