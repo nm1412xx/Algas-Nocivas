@@ -3,13 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta description para SEO -->
+    <meta name="description" content="Trabajo escolar sobre la Floración de Algas Nocivas (Marea Roja) en la Región de Los Lagos, Chile. Causas, soluciones y propuesta tecnológica.">
+    <!-- Meta keywords -->
+    <meta name="keywords" content="marea roja, algas nocivas, Región de Los Lagos, floración algal, contaminación marina">
+    <!-- Open Graph para compartir en redes sociales -->
+    <meta property="og:title" content="Floración de Algas Nocivas - Región de Los Lagos">
+    <meta property="og:description" content="Análisis de la problemática de la marea roja, sus causas, soluciones existentes y una propuesta tecnológica.">
+    <meta property="og:type" content="website">
     <title>Nicolás Mejías | Floración de algas nocivas</title>
+
     <!--CSS-->
     <link rel="shortcut icon" href="img/algas-marinas.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+
+    <!-- Botón flotante para volver arriba -->
+    <a href="#inicio" class="btn-arriba-flotante" aria-label="Volver al inicio">
+        <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+    </a>
+
     <!-- HEADER / PORTADA -->
     <header id="inicio">
         <h1><i class="fa-solid fa-water" aria-hidden="true"></i> Floración de Algas Nocivas</h1>
@@ -34,6 +49,8 @@
         <a href="#soluciones-existentes"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Soluciones existentes</a>
         <a href="#causas-o-motivos"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Causas o motivos</a>
         <a href="#solución-tecnológica"><i class="fa-solid fa-microchip" aria-hidden="true"></i> Solución propuesta</a>
+        <a href="#simulador"><i class="fa-solid fa-flask" aria-hidden="true"></i> Simulador</a>
+        <a href="#encuesta"><i class="fa-solid fa-poll" aria-hidden="true"></i> Encuesta</a>
         <a href="#conclusion"><i class="fa-solid fa-check-double" aria-hidden="true"></i> Conclusión</a>
         <a href="#bibliografia"><i class="fa-solid fa-book" aria-hidden="true"></i> Bibliografía</a>
         <a href="#descarga"><i class="fa-solid fa-download" aria-hidden="true"></i> Descarga</a>
@@ -80,6 +97,14 @@
                             <td>Sistema con microorganismos y monitoreo</td>
                         </tr>
                         <tr>
+                            <td>Simulador</td>
+                            <td>Simulación interactiva de proliferación de algas</td>
+                        </tr>
+                        <tr>
+                            <td>Encuesta</td>
+                            <td>Formulario de conocimiento sobre marea roja</td>
+                        </tr>
+                        <tr>
                             <td>Conclusión</td>
                             <td>Reflexión final y propuestas futuras</td>
                         </tr>
@@ -115,6 +140,13 @@
                 <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
                 <p><strong>¡Importante!</strong> Consumir mariscos de zonas cerradas puede provocar intoxicaciones graves o incluso la muerte. Respete siempre las vedas sanitarias.</p>
             </div>
+
+            <!-- Gráfico: afectaciones de la marea roja -->
+            <h3>Impacto de la marea roja en datos</h3>
+            <div class="grafico-contenedor">
+                <canvas id="graficoImpacto" aria-label="Gráfico de impacto de la marea roja"></canvas>
+            </div>
+            <p class="grafico-caption">Estimación porcentual de los principales impactos del fenómeno en la región.</p>
         </section>
 
         <!-- SOLUCIONES EXISTENTES -->
@@ -164,6 +196,13 @@
                 Las soluciones actuales logran mitigar impactos económicos y salvar biomasa a escala local, pero no logran evitar la ocurrencia ni la expansión geográfica de estos fenómenos naturales.
                 <i class="fa-solid fa-quote-right" aria-hidden="true"></i>
             </blockquote>
+
+            <!-- Gráfico: efectividad de soluciones -->
+            <h3>Efectividad estimada de las soluciones actuales</h3>
+            <div class="grafico-contenedor">
+                <canvas id="graficoSoluciones" aria-label="Gráfico de efectividad de soluciones"></canvas>
+            </div>
+            <p class="grafico-caption">Comparación estimada de la efectividad de cada medida implementada en la actualidad.</p>
         </section>
 
         <!-- CAUSAS O MOTIVOS -->
@@ -187,6 +226,14 @@
             <p>
                 Si la marea roja no se controla puede causar muchos más problemas. Las personas pueden enfermarse o incluso morir si comen mariscos contaminados. También puede provocar la muerte de peces, aves y otros animales marinos. Además, cuando aparece la marea roja, se cierran las zonas donde se extraen mariscos, lo que afecta el trabajo de los pescadores y provoca pérdidas económicas para los pescadores y el turismo, especialmente en la región de los lagos.
             </p>
+
+            <!-- Imagen ilustrativa -->
+            <div class="img-box">
+                <figure>
+                    <img src="img/causas-marea-roja.jpg" alt="Diagrama de causas de la marea roja: factores naturales y humanos">
+                    <figcaption>Figura 1: Factores naturales y humanos que contribuyen a la floración de algas nocivas.</figcaption>
+                </figure>
+            </div>
         </section>
 
         <!-- SOLUCIÓN TECNOLÓGICA -->
@@ -226,6 +273,127 @@
 
             <h3>Impacto esperado</h3>
             <p>Si esta solución se aplica de forma adecuada, el agua se mantendrá más limpia, disminuirá la presencia de algas nocivas y mejorará la salud de los ecosistemas acuáticos. Además, las comunidades cercanas podrán aprovechar mejor los recursos naturales y reducir los problemas relacionados con la contaminación del agua.</p>
+
+            <!-- Gráfico: comparación soluciones -->
+            <h3>Comparación: soluciones actuales vs. solución propuesta</h3>
+            <div class="grafico-contenedor">
+                <canvas id="graficoComparacion" aria-label="Gráfico comparativo de soluciones"></canvas>
+            </div>
+            <p class="grafico-caption">Comparación estimada de criterios entre las soluciones actuales y la propuesta tecnológica.</p>
+        </section>
+
+        <!-- SIMULADOR -->
+        <section id="simulador">
+            <h2>Simulador de proliferación de algas</h2>
+            <hr class="titulo">
+
+            <p>
+                Usa este simulador para observar cómo las condiciones del agua (temperatura, nutrientes y luz solar) afectan la proliferación de algas nocivas. Ajusta los valores con los controles deslizantes y observa el resultado en tiempo real.
+            </p>
+
+            <div class="simulador-contenedor">
+                <!-- Panel de controles -->
+                <div class="simulador-controles">
+                    <div class="control">
+                        <label for="temperatura">Temperatura del agua: <span id="valorTemperatura">15</span>°C</label>
+                        <input type="range" id="temperatura" min="5" max="30" value="15">
+                    </div>
+
+                    <div class="control">
+                        <label for="nutrientes">Nutrientes (nitrógeno/fósforo): <span id="valorNutrientes">30</span>%</label>
+                        <input type="range" id="nutrientes" min="0" max="100" value="30">
+                    </div>
+
+                    <div class="control">
+                        <label for="luz">Luz solar: <span id="valorLuz">50</span>%</label>
+                        <input type="range" id="luz" min="0" max="100" value="50">
+                    </div>
+
+                    <button id="btnSimular" class="btn-simular">
+                        <i class="fa-solid fa-play" aria-hidden="true"></i> Simular
+                    </button>
+
+                    <!-- Indicador de riesgo -->
+                    <div id="indicadorRiesgo" class="indicador-riesgo" aria-live="polite">
+                        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                        <span>Ajusta los valores y presiona "Simular"</span>
+                    </div>
+                </div>
+
+                <!-- Visualización -->
+                <div class="simulador-visual">
+                    <div id="mar" class="mar">
+                        <!-- Partículas de algas generadas por JS -->
+                    </div>
+                    <p class="simulador-contador">Algas: <span id="contadorAlgas">0</span></p>
+                </div>
+            </div>
+
+            <!-- Explicación del simulador -->
+            <div class="simulador-explicacion">
+                <h3>¿Cómo interpretar el resultado?</h3>
+                <p>
+                    <strong>Riesgo bajo (verde)</strong>: las condiciones no favorecen la proliferación.
+                    <br>
+                    <strong>Riesgo moderado (amarillo)</strong>: hay posibilidad de crecimiento de algas, se recomienda monitorear.
+                    <br>
+                    <strong>Riesgo alto (rojo)</strong>: las condiciones favorecen una floración de algas nocivas, se recomienda alerta sanitaria.
+                </p>
+            </div>
+        </section>
+
+        <!-- ENCUESTA -->
+        <section id="encuesta">
+            <h2>Encuesta sobre marea roja</h2>
+            <hr class="titulo">
+
+            <p>
+                Responde esta breve encuesta para evaluar cuánto conoces sobre la marea roja y sus efectos en la Región de Los Lagos.
+            </p>
+
+            <form id="encuestaForm" class="encuesta-form">
+                <div class="encuesta-pregunta">
+                    <p class="pregunta-texto">1. ¿Qué es la marea roja?</p>
+                    <label><input type="radio" name="p1" value="correcta"> Una proliferación de microalgas nocivas en el mar</label>
+                    <label><input type="radio" name="p1" value="incorrecta"> Una marea con color rojo natural del mar</label>
+                    <label><input type="radio" name="p1" value="incorrecta"> Un fenómeno de contaminación química</label>
+                </div>
+
+                <div class="encuesta-pregunta">
+                    <p class="pregunta-texto">2. ¿Cuál es el principal peligro para las personas?</p>
+                    <label><input type="radio" name="p2" value="incorrecta"> Que el agua se ponga fría</label>
+                    <label><input type="radio" name="p2" value="correcta"> Intoxicación por consumir mariscos contaminados</label>
+                    <label><input type="radio" name="p2" value="incorrecta"> Que se cierren las playas para nadar</label>
+                </div>
+
+                <div class="encuesta-pregunta">
+                    <p class="pregunta-texto">3. ¿Cuándo ocurre con mayor frecuencia?</p>
+                    <label><input type="radio" name="p3" value="incorrecta"> En invierno</label>
+                    <label><input type="radio" name="p3" value="correcta"> En primavera y verano</label>
+                    <label><input type="radio" name="p3" value="incorrecta"> Solo en otoño</label>
+                </div>
+
+                <div class="encuesta-pregunta">
+                    <p class="pregunta-texto">4. ¿Qué factor humano puede aumentar la frecuencia de la marea roja?</p>
+                    <label><input type="radio" name="p4" value="incorrecta"> La pesca deportiva</label>
+                    <label><input type="radio" name="p4" value="incorrecta"> El turismo costero</label>
+                    <label><input type="radio" name="p4" value="correcta"> El aumento de nutrientes y el cambio climático</label>
+                </div>
+
+                <div class="encuesta-pregunta">
+                    <p class="pregunta-texto">5. ¿Qué medida toma la Seremi de Salud cuando detecta toxinas?</p>
+                    <label><input type="radio" name="p5" value="incorrecta"> Cierra los colegios de la zona</label>
+                    <label><input type="radio" name="p5" value="correcta"> Decreta veda sanitaria y cierra zonas de recolección</label>
+                    <label><input type="radio" name="p5" value="incorrecta"> Aumenta los impuestos a los pescadores</label>
+                </div>
+
+                <button type="submit" class="btn-encuesta">
+                    <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Enviar respuestas
+                </button>
+            </form>
+
+            <!-- Resultado de la encuesta -->
+            <div id="resultadoEncuesta" class="resultado-encuesta" aria-live="polite"></div>
         </section>
 
         <!-- CONCLUSIÓN -->
@@ -287,7 +455,7 @@
             <h2>Descarga de un documento</h2>
             <hr class="titulo">
             <div class="descarga-contenedor">
-                <a href="algas.docx" download class="descarga-link">
+                <a href="Copia de Floración de algas nocivas.docx" download class="descarga-link">
                     <img src="img/document.jpg" alt="Portada del documento sobre floración de algas nocivas">
                     <span class="descarga-texto">
                         <i class="fa-solid fa-file-word" aria-hidden="true"></i>
@@ -313,6 +481,12 @@
             </p>
         </div>
     </footer>
+
+    <!-- Librería Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+    <!-- Script de interacciones -->
+    <script src="js/script.js"></script>
 
 </body>
 </html>
