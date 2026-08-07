@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+¿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -27,6 +27,9 @@
 
     <!-- HEADER / PORTADA -->
     <header id="inicio">
+        <!-- Partículas decorativas del header -->
+        <div class="header-particulas" id="headerParticulas" aria-hidden="true"></div>
+
         <h1><i class="fa-solid fa-water" aria-hidden="true"></i> Floración de Algas Nocivas</h1>
         <p class="subtitulo-portada">Región de Los Lagos</p>
 
@@ -49,6 +52,8 @@
         <a href="#soluciones-existentes"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Soluciones existentes</a>
         <a href="#causas-o-motivos"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Causas o motivos</a>
         <a href="#solución-tecnológica"><i class="fa-solid fa-microchip" aria-hidden="true"></i> Solución propuesta</a>
+        <a href="#monitoreo"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Panel de Monitoreo</a>
+        <a href="#mapa"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Mapa de Sensores</a>
         <a href="#simulador"><i class="fa-solid fa-flask" aria-hidden="true"></i> Simulador</a>
         <a href="#encuesta"><i class="fa-solid fa-poll" aria-hidden="true"></i> Encuesta</a>
         <a href="#conclusion"><i class="fa-solid fa-check-double" aria-hidden="true"></i> Conclusión</a>
@@ -60,7 +65,7 @@
     <main>
 
         <!-- INTRODUCCIÓN -->
-        <section id="introduccion">
+        <section id="introduccion" class="animar">
             <h2>Introducción</h2>
             <hr class="titulo">
 
@@ -97,6 +102,14 @@
                             <td>Sistema con microorganismos y monitoreo</td>
                         </tr>
                         <tr>
+                            <td>Panel de monitoreo</td>
+                            <td>Gráficos en tiempo real de temperatura y nutrientes</td>
+                        </tr>
+                        <tr>
+                            <td>Mapa de sensores</td>
+                            <td>Ubicación de puntos de monitoreo en la región</td>
+                        </tr>
+                        <tr>
                             <td>Simulador</td>
                             <td>Simulación interactiva de proliferación de algas</td>
                         </tr>
@@ -114,7 +127,7 @@
         </section>
 
         <!-- PROBLEMÁTICA -->
-        <section id="problematica">
+        <section id="problematica" class="animar">
             <h2>¿Cuál es la problemática?</h2>
             <hr class="titulo">
 
@@ -150,7 +163,7 @@
         </section>
 
         <!-- SOLUCIONES EXISTENTES -->
-        <section id="soluciones-existentes">
+        <section id="soluciones-existentes" class="animar">
             <h2>¿Qué soluciones existen actualmente?</h2>
             <hr class="titulo">
 
@@ -206,7 +219,7 @@
         </section>
 
         <!-- CAUSAS O MOTIVOS -->
-        <section id="causas-o-motivos">
+        <section id="causas-o-motivos" class="animar">
             <h2>¿Cuáles son las causas o motivos de esta problemática?</h2>
             <hr class="titulo">
 
@@ -226,10 +239,18 @@
             <p>
                 Si la marea roja no se controla puede causar muchos más problemas. Las personas pueden enfermarse o incluso morir si comen mariscos contaminados. También puede provocar la muerte de peces, aves y otros animales marinos. Además, cuando aparece la marea roja, se cierran las zonas donde se extraen mariscos, lo que afecta el trabajo de los pescadores y provoca pérdidas económicas para los pescadores y el turismo, especialmente en la región de los lagos.
             </p>
+
+            <!-- Imagen ilustrativa -->
+            <div class="img-box">
+                <figure>
+                    <img src="img/causas-marea-roja.jpg" alt="Diagrama de causas de la marea roja: factores naturales y humanos">
+                    <figcaption>Figura 1: Factores naturales y humanos que contribuyen a la floración de algas nocivas.</figcaption>
+                </figure>
+            </div>
         </section>
 
         <!-- SOLUCIÓN TECNOLÓGICA -->
-        <section id="solución-tecnológica">
+        <section id="solución-tecnológica" class="animar">
             <h2>Solución tecnológica</h2>
             <hr class="titulo">
 
@@ -274,9 +295,124 @@
             <p class="grafico-caption">Comparación estimada de criterios entre las soluciones actuales y la propuesta tecnológica.</p>
         </section>
 
+        <!-- PANEL DE MONITOREO EN TIEMPO REAL -->
+        <section id="monitoreo" class="animar">
+            <h2><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Panel de Monitoreo en Tiempo Real</h2>
+            <hr class="titulo">
+
+            <p>
+                Este panel simula los datos de sensores instalados en la bahía. Los valores de temperatura, nutrientes, oxígeno disuelto y pH se actualizan automáticamente cada 2 segundos, mostrando gráficos en tiempo real.
+            </p>
+
+            <!-- Tarjetas de indicadores -->
+            <div class="indicadores-panel">
+                <div class="indicador-card" id="cardTemp">
+                    <i class="fa-solid fa-temperature-half" aria-hidden="true"></i>
+                    <div class="indicador-info">
+                        <span class="indicador-valor" id="valTemp">14.2°C</span>
+                        <span class="indicador-nombre">Temperatura</span>
+                    </div>
+                    <span class="indicador-estado" id="estadoTemp">Normal</span>
+                </div>
+
+                <div class="indicador-card" id="cardNut">
+                    <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+                    <div class="indicador-info">
+                        <span class="indicador-valor" id="valNut">28%</span>
+                        <span class="indicador-nombre">Nutrientes</span>
+                    </div>
+                    <span class="indicador-estado" id="estadoNut">Normal</span>
+                </div>
+
+                <div class="indicador-card" id="cardO2">
+                    <i class="fa-solid fa-wind" aria-hidden="true"></i>
+                    <div class="indicador-info">
+                        <span class="indicador-valor" id="valO2">7.8 mg/L</span>
+                        <span class="indicador-nombre">Oxígeno</span>
+                    </div>
+                    <span class="indicador-estado" id="estadoO2">Normal</span>
+                </div>
+
+                <div class="indicador-card" id="cardPH">
+                    <i class="fa-solid fa-vial" aria-hidden="true"></i>
+                    <div class="indicador-info">
+                        <span class="indicador-valor" id="valPH">7.4</span>
+                        <span class="indicador-nombre">pH</span>
+                    </div>
+                    <span class="indicador-estado" id="estadoPH">Normal</span>
+                </div>
+            </div>
+
+            <!-- Indicador general de riesgo -->
+            <div id="riesgoGeneral" class="riesgo-general" aria-live="polite">
+                <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                <span>Riesgo general de floración: <strong>Bajo</strong></span>
+            </div>
+
+            <!-- Gráficos en tiempo real -->
+            <div class="graficos-tiempo-real">
+                <div class="grafico-mini">
+                    <h4><i class="fa-solid fa-temperature-half" aria-hidden="true"></i> Temperatura (°C)</h4>
+                    <canvas id="graficoTemp" aria-label="Gráfico de temperatura en tiempo real"></canvas>
+                </div>
+                <div class="grafico-mini">
+                    <h4><i class="fa-solid fa-seedling" aria-hidden="true"></i> Nutrientes (%)</h4>
+                    <canvas id="graficoNut" aria-label="Gráfico de nutrientes en tiempo real"></canvas>
+                </div>
+            </div>
+
+            <!-- Historial de datos -->
+            <div class="historial-datos">
+                <h4><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i> Últimas mediciones</h4>
+                <div id="historialLista" class="historial-lista">
+                    <p class="historial-vacio">Esperando datos...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAPA INTERACTIVO DE SENSORES -->
+        <section id="mapa" class="animar">
+            <h2><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Mapa de Sensores - Región de Los Lagos</h2>
+            <hr class="titulo">
+
+            <p>
+                Mapa interactivo con la ubicación de los puntos de monitoreo propuestos. Haz clic en cada sensor para ver sus datos en tiempo real.
+            </p>
+
+            <!-- Contenedor del mapa -->
+            <div class="mapa-contenedor">
+                <div class="mapa-svg" id="mapaSVG" aria-label="Mapa de la Región de Los Lagos con puntos de monitoreo">
+                    <!-- SVG del mapa generado por JS -->
+                </div>
+
+                <!-- Panel de información del sensor -->
+                <div class="mapa-panel" id="mapaPanel">
+                    <div class="mapa-panel-header">
+                        <h4 id="panelTitulo">Selecciona un sensor</h4>
+                        <button class="mapa-panel-cerrar" id="mapaPanelCerrar" aria-label="Cerrar panel">
+                            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="mapa-panel-body" id="panelBody">
+                        <p class="mapa-hint"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> Haz clic en un punto del mapa para ver la información del sensor.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leyenda del mapa -->
+            <div class="mapa-leyenda">
+                <h4>Leyenda</h4>
+                <div class="leyenda-items">
+                    <span class="leyenda-item"><span class="leyenda-dot" style="background:#4ec48a;"></span> Riesgo bajo</span>
+                    <span class="leyenda-item"><span class="leyenda-dot" style="background:#f0c040;"></span> Riesgo moderado</span>
+                    <span class="leyenda-item"><span class="leyenda-dot" style="background:#c45454;"></span> Riesgo alto</span>
+                </div>
+            </div>
+        </section>
+
         <!-- SIMULADOR -->
-        <section id="simulador">
-            <h2>Simulador de proliferación de algas</h2>
+        <section id="simulador" class="animar">
+            <h2><i class="fa-solid fa-flask" aria-hidden="true"></i> Simulador de proliferación de algas</h2>
             <hr class="titulo">
 
             <p>
@@ -303,6 +439,10 @@
 
                     <button id="btnSimular" class="btn-simular">
                         <i class="fa-solid fa-play" aria-hidden="true"></i> Simular
+                    </button>
+
+                    <button id="btnResetSimulador" class="btn-reset">
+                        <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Reiniciar
                     </button>
 
                     <!-- Indicador de riesgo -->
@@ -335,8 +475,8 @@
         </section>
 
         <!-- ENCUESTA -->
-        <section id="encuesta">
-            <h2>Encuesta sobre marea roja</h2>
+        <section id="encuesta" class="animar">
+            <h2><i class="fa-solid fa-poll" aria-hidden="true"></i> Encuesta sobre marea roja</h2>
             <hr class="titulo">
 
             <p>
@@ -389,7 +529,7 @@
         </section>
 
         <!-- CONCLUSIÓN -->
-        <section id="conclusion">
+        <section id="conclusion" class="animar">
             <h2>Conclusión</h2>
             <hr class="titulo">
             <p>
@@ -408,7 +548,7 @@
         </section>
 
         <!-- BIBLIOGRAFÍA -->
-        <section id="bibliografia">
+        <section id="bibliografia" class="animar">
             <h2>Bibliografía</h2>
             <hr class="titulo">
             <ul class="bibliografia">
@@ -443,7 +583,7 @@
         </section>
 
         <!-- DESCARGA -->
-        <section id="descarga">
+        <section id="descarga" class="animar">
             <h2>Descarga de un documento</h2>
             <hr class="titulo">
             <div class="descarga-contenedor">
