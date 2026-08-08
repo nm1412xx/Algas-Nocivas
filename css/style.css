@@ -92,15 +92,22 @@ body {
 
 /* Animación de aparición al scroll */
 .animar {
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 1;
+    transform: translateY(0);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.animar.visible {
+/* La animación solo se activa cuando JavaScript está funcionando */
+.animar.animacion-activa {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.animar.animacion-activa.visible {
     opacity: 1;
     transform: translateY(0);
 }
+
 
 /* ---------- HEADER / PORTADA ---------- */
 
